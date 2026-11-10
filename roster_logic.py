@@ -227,3 +227,21 @@ def remove_leave(emp_id, day):
 def new_gaps(before, after):
     seen = {(g["date"], g["pid"]) for g in before}
     return [g for g in after if (g["date"], g["pid"]) not in seen]
+
+def add_assignment(emp_id, process_id):
+    conn = get_conn()
+    conn.execute(
+        "INSERT OR IGNORE INTO assignments (employee_id, process_id) VALUES (?, ?)",
+        (emp_id, process_id),
+    )
+    conn.commit()
+    conn.close()
+
+def remove_assignment(emp_id, process_id):
+    conn = get_conn()
+    conn.execute(
+        "DELETE FROM assignments WHERE employee_id = ? AND process_id = ?",
+        (emp_id, process_id),
+    )
+    conn.commit()
+    conn.close()    

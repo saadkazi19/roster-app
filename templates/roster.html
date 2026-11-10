@@ -75,6 +75,24 @@
         </label>
         <button type="submit">Add leave</button>
     </form>
+        <form method="post" action="/assign">
+        <label>Employee:
+            <select name="employee_id">
+                {% for e in all_employees %}
+                <option value="{{ e.id }}">{{ e.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <label>Process:
+            <select name="process_id">
+                {% for pid, p in process_list %}
+                <option value="{{ pid }}">{{ p.brand }} - {{ p.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <button type="submit" name="action" value="add">Assign</button>
+        <button type="submit" name="action" value="remove">Unassign</button>
+    </form>
     <p>coverage gaps: {{gap_count}}</p>
     <table border="1">
         <tr>

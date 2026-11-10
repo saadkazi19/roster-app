@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from roster_logic import generate_roster, month_days, explain_gap, gap_cause, suggest_backups, add_leave
+from roster_logic import generate_roster, month_days, explain_gap, gap_cause, suggest_backups, add_leave, add_assignment, remove_assignment
 from db import init_db, get_conn
 from seed import seed_all
 
@@ -68,6 +68,18 @@ def add_leave_route():
         add_leave(emp_id, day, kind)
         year, month = int(day[:4]), int(day[5:7])
         return redirect(url_for("roster", year=year, month=month))
+    return redirect(url_for("roster"))
+
+@app.route("/assign", methods=["POST"])
+def assign_route():
+    emp_id = request.form.get("employee_id", type=int)
+    process_id = request.form.get("process_id", type=int)
+    action = request.form.get("action")
+    if emp_id and process_id:
+        if action == "add":
+            add_assignment(emp_id, process_id)
+        elif action == "remove":
+            remove_assignment(emp_id, process_id)
     return redirect(url_for("roster"))
 
 seed_all()
