@@ -1,0 +1,12 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+table { border-collapse: collapse; font-size: 12px; }
+th, td { border: 1px solid #ccc; padding: 4px 6px; text-align: center; }
+td:first-child, th:first-child { text-align: left; white-space: nowrap; }
+
+.s-WORK  { background: #d4edda; }
+.s-WO    { background: #fff3cd; }
+.s-LEAVE { background: #f8d7da; }
+.s-COMP  { background: #e2d5f1; }
+.s-PH    { background: #cce5ff; }
+.s-OFF   { background: #e9ecef; }
+.conflict td { text-align: left; }
