@@ -50,8 +50,6 @@ def roster():
             "backups": suggest_backups(gap, grid, data),
         })
 
-    print("ROWS:", len(employees), pod, brand, process, employee)
-
     return render_template(
         "roster.html", year=year, month=month, gap_count=len(gaps),
         days=month_days(year, month),
