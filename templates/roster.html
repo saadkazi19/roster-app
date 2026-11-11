@@ -4,8 +4,12 @@
     <title>Roster</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>Roster for {{month}}/{{year}}</h1>
+<body class = "app">
+    <header class = "app-header">
+        <h1>roster for  {{ month }}/{{ year }}</h1>
+        <a href="/">Home</a>
+    </header>
+    <div class = "toolbar">
         <form method="get" action="/roster">
         <label>Month:
             <select name="month">
@@ -93,7 +97,9 @@
         <button type="submit" name="action" value="add">Assign</button>
         <button type="submit" name="action" value="remove">Unassign</button>
     </form>
-    <p>coverage gaps: {{gap_count}}</p>
+    </div>
+    <p class="gap-count">Coverage gaps: {{ gap_count }}</p>
+    <div class = "grid-wrap">
     <table border="1">
         <tr>
             <th>Employee</th>
@@ -110,6 +116,7 @@
         </tr>
         {% endfor %}
     </table>
+    </div>
     <h2>conflicts</h2>
     <table class = "conflicts">
         <tr><th>Cause</th><th>Details</th><th>Suggested Backups</th></tr>
