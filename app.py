@@ -59,10 +59,10 @@ def roster():
         grid=grid, conflicts=conflicts,
     )
 
-@app.route("/add_leave", methods=["POST"])
+@app.route("/add-leave", methods=["POST"])
 def add_leave_route():
-    emp_id = request.form.get("emp_id", type=int)
-    day = request.form.get("day")
+    emp_id = request.form.get("employee_id", type=int)
+    day = request.form.get("date")
     kind = request.form.get("kind", "leave")
     if emp_id and day:
         add_leave(emp_id, day, kind)
