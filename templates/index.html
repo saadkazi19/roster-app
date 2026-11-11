@@ -4,14 +4,34 @@
     <title>Smart Roster Management System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>Smart Roster Management System</h1>
-    <p>Plan, generate and validate monthly rosters across brands, processes and pods.</p>
-    <ul>
-        <li>32 employees, 20 brands, 5 pods</li>
-        <li>Coverage gaps are flagged with a cause and suggested backups</li>
-        <li>Filter by pod, brand, process or employee</li>
-    </ul>
-    <p><a href="/roster">Open the roster</a></p>
+<body class="home">
+        <header class="home-hero">
+        <p class="home-tag">Operations planning tool</p>
+        <h1>Smart Roster Management System</h1>
+        <p class="home-sub">Plan, generate and validate monthly rosters across brands, processes and pods, and see coverage gaps before they happen.</p>
+        <a class="home-btn" href="/roster">Open the roster</a>
+    </header>
+
+    <section class="home-stats">
+        <div><strong>32</strong><span>Employees</span></div>
+        <div><strong>20</strong><span>Brands</span></div>
+        <div><strong>36</strong><span>Processes</span></div>
+        <div><strong>5</strong><span>Pods</span></div>
+    </section>
+
+    <section class="home-cards">
+        <div class="home-card">
+            <h3>Coverage checks</h3>
+            <p>Every gap is flagged with its cause, a plain-English explanation and suggested backups.</p>
+        </div>
+        <div class="home-card">
+            <h3>Five views</h3>
+            <p>Filter the roster by company, pod, brand, process or individual employee.</p>
+        </div>
+        <div class="home-card">
+            <h3>Handle changes</h3>
+            <p>Add a leave or change an assignment, and the whole roster regenerates instantly.</p>
+        </div>
+    </section>
 </body>
 </html>
